@@ -5,7 +5,20 @@ import ShowOptions from "./../components/ShowOptions";
 import ResetOptions from "./../components/ResetOptions";
 import GetOption from "./../components/GetOption";
 
-class TinMarin extends Component {
+type State = {
+  randomOption: {
+    __id: String,
+    option: String
+  },
+  options: [
+    {
+      __id: String,
+      option: String
+    }
+  ]
+};
+
+class TinMarin extends Component<{}, State> {
   state = {
     randomOption: {},
     options: []

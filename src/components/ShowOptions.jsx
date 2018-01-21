@@ -50,7 +50,9 @@ const ShowOptions = ({ options, updateState, randomOption }: Props) => {
   );
 };
 
-ShowOptions.handleDeleteOption = (updateState, options, option) => e => {
+ShowOptions.handleDeleteOption = (updateState, options, option) => (
+  e: SyntheticEvent<HTMLButtonElement>
+) => {
   e.preventDefault();
   const remainingOptions = options.filter(item => item !== option);
   updateState({

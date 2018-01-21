@@ -11,7 +11,9 @@ const ResetOptions = ({ updateState }: Props) => (
   </button>
 );
 
-ResetOptions.handleReset = updateState => e => {
+ResetOptions.handleReset = updateState => (
+  e: SyntheticEvent<HTMLButtonElement>
+) => {
   e.preventDefault();
   updateState({
     options: [],

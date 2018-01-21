@@ -7,6 +7,11 @@
   padding: 0;
 }
 
+.tinMarin__list-item--chosen {
+  background: rebeccapurple;
+  color: white;
+}
+
 ::selection {
   background: #61DAFB
 }

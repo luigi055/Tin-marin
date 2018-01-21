@@ -21,7 +21,7 @@ const AddOptions = ({ updateState }: Props) => (
   </form>
 );
 
-AddOptions.onSubmit = actualState => e => {
+AddOptions.onSubmit = actualState => (e: SyntheticEvent<HTMLFormElement>) => {
   e.preventDefault();
   // Using ref propertie for Controlled Component
   const textOption = this.textOption.value;

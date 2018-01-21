@@ -21,7 +21,9 @@ const GetOption = ({ updateState, options }: Props) => (
   </button>
 );
 
-GetOption.handleRandomOption = (updateState, options) => e => {
+GetOption.handleRandomOption = (updateState, options) => (
+  e: SyntheticEvent<HTMLButtonElement>
+) => {
   e.preventDefault();
   updateState({
     randomOption: getRandomOption(options)
