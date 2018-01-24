@@ -17,7 +17,8 @@ ResetOptions.handleReset = updateState => (
   e.preventDefault();
   updateState({
     options: [],
-    randomOption: null
+    randomOption: null,
+    selectedOptions: []
   });
 };
 

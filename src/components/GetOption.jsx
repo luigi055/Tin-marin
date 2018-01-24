@@ -9,24 +9,36 @@ type Props = {
       option: String
     }
   ],
-  updateState: Function
+  updateState: Function,
+  selectedOptions: [
+    {
+      __id: String,
+      option: String
+    }
+  ]
 };
 
-const GetOption = ({ updateState, options }: Props) => (
+const GetOption = ({ updateState, options, selectedOptions }: Props) => (
   <button
     type="button"
-    onClick={GetOption.handleRandomOption(updateState, options)}
+    onClick={GetOption.handleRandomOption(
+      updateState,
+      options,
+      selectedOptions
+    )}
   >
     TIN MARÍN!
   </button>
 );
 
-GetOption.handleRandomOption = (updateState, options) => (
+GetOption.handleRandomOption = (updateState, options, selectedOptions) => (
   e: SyntheticEvent<HTMLButtonElement>
 ) => {
   e.preventDefault();
+  const randomOption = getRandomOption(options);
   updateState({
-    randomOption: getRandomOption(options)
+    randomOption,
+    selectedOptions: [...selectedOptions, randomOption]
   });
 };
 
