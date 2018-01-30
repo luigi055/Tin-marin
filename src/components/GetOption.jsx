@@ -1,5 +1,6 @@
 // @flow
 import React from "react";
+import styled from "styled-components";
 import getRandomOption from "./../tools/getRandomOption";
 
 type Props = {
@@ -18,8 +19,16 @@ type Props = {
   ]
 };
 
+const Add = styled.button`
+  background: #0f0;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 5px;
+  width: 50%;
+`;
+
 const GetOption = ({ updateState, options, selectedOptions }: Props) => (
-  <button
+  <Add
     type="button"
     onClick={GetOption.handleRandomOption(
       updateState,
@@ -28,7 +37,7 @@ const GetOption = ({ updateState, options, selectedOptions }: Props) => (
     )}
   >
     TIN MARÍN!
-  </button>
+  </Add>
 );
 
 GetOption.handleRandomOption = (updateState, options, selectedOptions) => (
@@ -36,6 +45,7 @@ GetOption.handleRandomOption = (updateState, options, selectedOptions) => (
 ) => {
   e.preventDefault();
   const randomOption = getRandomOption(options);
+  if (options.length === 0) return;
   updateState({
     randomOption,
     selectedOptions: [...selectedOptions, randomOption]

@@ -29,6 +29,17 @@ type State = {
 const Wrapper = styled.div`
   border: 2px solid #a0a;
   background-color: #cfe;
+  padding: 10px 20px;
+  max-width: 500px;
+  width: 100%;
+`;
+
+const Title = styled.h1`
+  margin-bottom: 5px;
+`;
+
+const Description = styled.p`
+  color: #333;
 `;
 
 class TinMarin extends Component<{}, State> {
@@ -41,8 +52,9 @@ class TinMarin extends Component<{}, State> {
   updateState = state => this.setState(state);
 
   render = () => (
-    <Wrapper className="tinMarin">
-      <h1> Tin Marín </h1> <p> de do pingüé cúcara mácara títere fué </p>
+    <Wrapper>
+      <Title> Tin Marín </Title>
+      <Description> de do pingüé cúcara mácara títere fué </Description>
       <AddOptions updateState={this.updateState} />
       <ShowOptions updateState={this.updateState} {...this.state} />
       <ResetOptions updateState={this.updateState} />

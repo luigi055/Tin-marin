@@ -14,16 +14,17 @@ type Props = {
 
 const Statistics = ({ selectedOptions }: Props) => {
   const coincidence = mostCoincidence(selectedOptions);
+  // console.log(selectedOptions);
   const renderOptions = () =>
     selectedOptions.map((option, i) => (
       <li key={uuid()}>
-        {i + 1}: {option.option}
+        {i + 1}: {option && option.option}
       </li>
     ));
 
   return (
     <div>
-      <h5>Most Coincidence: {coincidence && coincidence.option}</h5>
+      <h5> {coincidence && `Most Concurrented: ${coincidence.option}`}</h5>
       <ul>{renderOptions()}</ul>
     </div>
   );
