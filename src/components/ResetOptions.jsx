@@ -1,23 +1,12 @@
 // @flow
 import React from "react";
-import styled from "styled-components";
-
-type Props = {
-  updateState: Function
-};
-
-const Reset = styled.button`
-  background: #ff1111;
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 5px;
-  width: 50%;
-`;
+import { RemoveButton } from "./../styles/StyledComponents";
+import { Props } from "./../../flow-typed/types";
 
 const ResetOptions = ({ updateState }: Props) => (
-  <Reset type="button" onClick={ResetOptions.handleReset(updateState)}>
-    Reset Options
-  </Reset>
+  <RemoveButton type="button" onClick={ResetOptions.handleReset(updateState)}>
+    RESET OPTIONS
+  </RemoveButton>
 );
 
 ResetOptions.handleReset = updateState => (
@@ -26,7 +15,7 @@ ResetOptions.handleReset = updateState => (
   e.preventDefault();
   updateState({
     options: [],
-    randomOption: null,
+    randomOption: {},
     selectedOptions: []
   });
 };

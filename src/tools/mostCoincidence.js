@@ -1,3 +1,4 @@
+// @flow
 /* eslint-disable*/
 function mostCoincidence(array) {
   var counts = {};

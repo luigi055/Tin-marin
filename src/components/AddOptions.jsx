@@ -1,32 +1,12 @@
 // @flow
 import React, { Component } from "react";
 import uuid from "uuid/v4";
-import styled from "styled-components";
-
-type Props = {
-  updateState: Function
-};
+import { AddForm, AddButton } from "./../styles/StyledComponents";
+import { Props } from "./../../flow-typed/types";
 
 type State = {
   value: String
 };
-
-const Input = styled.input`
-  display: inline-block;
-  width: 100%;
-  padding: 5px;
-`;
-
-const Button = styled.button`
-  background: #f90;
-  cursor: pointer;
-  display: inline-block;
-  padding: 10px 5px;
-  width: 100%;
-`;
-const Form = styled.form`
-  margin: 10px 0;
-`;
 
 class AddOptions extends Component<Props, State> {
   state = {
@@ -37,28 +17,41 @@ class AddOptions extends Component<Props, State> {
 
   render() {
     return (
-      <Form
-        onSubmit={AddOptions.onSubmit(this.props.updateState, this.state.value)}
+      <AddForm
+        onSubmit={AddOptions.onSubmit(
+          this.props.updateState,
+          this.state.value,
+          this.props.options
+        )}
       >
         <label htmlFor="tinMarinOption">
-          <Input
+          <input
             type="text"
             name="tinMarinOption"
             onChange={AddOptions.onGetValue(this.updateLocalState)}
           />
         </label>
-        <Button> Add Option </Button>
-      </Form>
+        <AddButton> ADD OPTION </AddButton>
+      </AddForm>
     );
   }
 }
 
-AddOptions.onSubmit = (updateState, value) => (
+AddOptions.onSubmit = (updateState, value, options) => (
   e: SyntheticEvent<HTMLFormElement>
 ) => {
   e.preventDefault();
-
   const __id = uuid();
+  // Check if the added option isn't repeated
+  const uniqueValue = options.filter(({ option }) => option === value);
+  if (uniqueValue[0]) {
+    console.log("Repated Value");
+    // clear input when submit form
+    e.target.tinMarinOption.value = "";
+    return;
+  }
+
+  // Update the state adding a new option to options array
   updateState(state => ({
     options: [
       ...state.options,
@@ -68,6 +61,7 @@ AddOptions.onSubmit = (updateState, value) => (
       }
     ]
   }));
+
   // clear input when submit form
   e.target.tinMarinOption.value = "";
 };

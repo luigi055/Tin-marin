@@ -1,62 +1,19 @@
 // @flow
 import React from "react";
-import styled from "styled-components";
+import {
+  TinMarinList,
+  TinMarinOption,
+  TinMarinOptionSelected,
+  Delete,
+  Placeholder
+} from "./../styles/StyledComponents";
 
-type Props = {
-  options: [
-    {
-      __id: String,
-      option: String
-    }
-  ],
-  randomOption: {
-    __id: String,
-    option: String
-  },
-  updateState: Function
-};
-
-const TinMarinList = styled.ul`
-  border: #ea0;
-  background: #868;
-  height: 200px;
-  list-style: none;
-  margin-bottom: 10px;
-  max-height: 200px;
-  overflow: auto;
-`;
-
-const TinMarinOption = styled.li`
-  background: rebeccapurple;
-  border-bottom: 2px solid #aa00ee;
-  color: #cecece;
-  padding: 10px 25px;
-  text-align: left;
-`;
-
-const TinMarinOptionSelected = styled.li`
-  background: #0f0;
-  border-bottom: 2px solid #aa00ee;
-  color: #333;
-  padding: 10px 25px;
-  text-align: left;
-`;
-
-const Delete = styled.button`
-  background: #ff5555;
-  border: 2px solid #ff3333;
-  border-radius: 50%;
-  cursor: pointer;
-  float: right;
-  padding: 2px;
-`;
-
-const Placeholder = styled.span``;
+import { Props } from "./../../flow-typed/types";
 
 const ShowOptions = ({ options, updateState, randomOption }: Props) => {
   const RenderOptions = () =>
     options.map(option => {
-      if (option.option === randomOption.option) {
+      if (option === randomOption) {
         return (
           <TinMarinOptionSelected key={option.__id}>
             {option.option}
@@ -68,7 +25,7 @@ const ShowOptions = ({ options, updateState, randomOption }: Props) => {
                 option
               )}
             >
-              X
+              &times;
             </Delete>
           </TinMarinOptionSelected>
         );
@@ -84,7 +41,7 @@ const ShowOptions = ({ options, updateState, randomOption }: Props) => {
               option
             )}
           >
-            X
+            &times;
           </Delete>
         </TinMarinOption>
       );

@@ -1,32 +1,28 @@
 // @flow
 import React from "react";
-import uuid from "uuid/v4";
+import { StatisticsWrapper } from "./../styles/StyledComponents";
 import mostCoincidence from "./../tools/mostCoincidence";
+import { Props } from "./../../flow-typed/types";
 
-type Props = {
-  selectedOptions: [
-    {
-      __id: String,
-      option: String
-    }
-  ]
-};
-
-const Statistics = ({ selectedOptions }: Props) => {
+const Statistics = ({ selectedOptions, randomOption }: Props) => {
   const coincidence = mostCoincidence(selectedOptions);
-  // console.log(selectedOptions);
-  const renderOptions = () =>
-    selectedOptions.map((option, i) => (
-      <li key={uuid()}>
-        {i + 1}: {option && option.option}
-      </li>
-    ));
 
   return (
-    <div>
-      <h5> {coincidence && `Most Concurrented: ${coincidence.option}`}</h5>
-      <ul>{renderOptions()}</ul>
-    </div>
+    <StatisticsWrapper>
+      <div>
+        <h4>Most Concurrented:</h4>
+        <p>{coincidence ? coincidence.option : `------`}</p>
+      </div>
+      <div>
+        <h4>Option:</h4>
+        <p>
+          {/* If randomOption is empty then return ------ if not return the option */}
+          {Object.keys(randomOption).length === 0
+            ? `------`
+            : randomOption.option}
+        </p>
+      </div>
+    </StatisticsWrapper>
   );
 };
 

@@ -1,46 +1,12 @@
 // @flow
 import React, { Component } from "react";
-import styled from "styled-components";
+import { Wrapper } from "./../styles/StyledComponents";
 import AddOptions from "./../components/AddOptions";
 import ShowOptions from "./../components/ShowOptions";
 import ResetOptions from "./../components/ResetOptions";
 import GetOption from "./../components/GetOption";
 import Statistics from "./../components/Statistics";
-
-type State = {
-  randomOption: {
-    __id: String,
-    option: String
-  },
-  options: [
-    {
-      __id: String,
-      option: String
-    }
-  ],
-  selectedOptions: [
-    {
-      __id: String,
-      option: String
-    }
-  ]
-};
-
-const Wrapper = styled.div`
-  border: 2px solid #a0a;
-  background-color: #cfe;
-  padding: 10px 20px;
-  max-width: 500px;
-  width: 100%;
-`;
-
-const Title = styled.h1`
-  margin-bottom: 5px;
-`;
-
-const Description = styled.p`
-  color: #333;
-`;
+import { State } from "./../../flow-typed/types";
 
 class TinMarin extends Component<{}, State> {
   state = {
@@ -53,13 +19,13 @@ class TinMarin extends Component<{}, State> {
 
   render = () => (
     <Wrapper>
-      <Title> Tin Marín </Title>
-      <Description> de do pingüé cúcara mácara títere fué </Description>
-      <AddOptions updateState={this.updateState} />
+      <h1> Tin Marín </h1>
+      <p> de do pingüé cúcara mácara títere fué </p>
+      <AddOptions updateState={this.updateState} options={this.state.options} />
       <ShowOptions updateState={this.updateState} {...this.state} />
       <ResetOptions updateState={this.updateState} />
       <GetOption {...this.state} updateState={this.updateState} />
-      <Statistics selectedOptions={this.state.selectedOptions} />
+      <Statistics {...this.state} />
     </Wrapper>
   );
 }
