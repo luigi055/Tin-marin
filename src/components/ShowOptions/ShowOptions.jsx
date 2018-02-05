@@ -6,9 +6,9 @@ import {
   TinMarinOptionSelected,
   Delete,
   Placeholder
-} from "./../styles/StyledComponents";
+} from "./Styles";
 
-import { Props } from "./../../flow-typed/types";
+import { Props } from "./../../../flow-typed/types";
 
 const ShowOptions = ({ options, updateState, randomOption }: Props) => {
   const RenderOptions = () =>
@@ -25,7 +25,7 @@ const ShowOptions = ({ options, updateState, randomOption }: Props) => {
                 option
               )}
             >
-              &times;
+              <span>&times;</span>
             </Delete>
           </TinMarinOptionSelected>
         );
@@ -41,7 +41,7 @@ const ShowOptions = ({ options, updateState, randomOption }: Props) => {
               option
             )}
           >
-            &times;
+            <span>&times;</span>
           </Delete>
         </TinMarinOption>
       );

@@ -1,11 +1,11 @@
 // @flow
 import React, { Component } from "react";
-import { Wrapper } from "./../styles/StyledComponents";
-import AddOptions from "./../components/AddOptions";
-import ShowOptions from "./../components/ShowOptions";
-import ResetOptions from "./../components/ResetOptions";
-import GetOption from "./../components/GetOption";
-import Statistics from "./../components/Statistics";
+import Wrapper from "./Styles";
+import AddOptions from "./../components/AddOptions/AddOptions";
+import ShowOptions from "./../components/ShowOptions/ShowOptions";
+import ResetOptions from "./../components/ResetOptions/ResetOptions";
+import GetOption from "./../components/GetOption/GetOption";
+import Statistics from "./../components/Statistics/Statistics";
 import { State } from "./../../flow-typed/types";
 
 class TinMarin extends Component<{}, State> {

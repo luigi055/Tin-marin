@@ -1,8 +1,8 @@
 // @flow
 import React from "react";
-import { GetButton } from "./../styles/StyledComponents";
-import getRandomOption from "./../tools/getRandomOption";
-import { Props } from "./../../flow-typed/types";
+import GetButton from "./Styles";
+import getRandomOption from "./../../tools/getRandomOption";
+import { Props } from "./../../../flow-typed/types";
 
 const GetOption = ({ updateState, options, selectedOptions }: Props) => (
   <GetButton

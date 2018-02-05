@@ -1,14 +1,14 @@
 // @flow
 import React from "react";
-import { StatisticsWrapper } from "./../styles/StyledComponents";
-import mostCoincidence from "./../tools/mostCoincidence";
-import { Props } from "./../../flow-typed/types";
+import Wrapper from "./Styles";
+import mostCoincidence from "./../../tools/mostCoincidence";
+import { Props } from "./../../../flow-typed/types";
 
 const Statistics = ({ selectedOptions, randomOption }: Props) => {
   const coincidence = mostCoincidence(selectedOptions);
 
   return (
-    <StatisticsWrapper>
+    <Wrapper>
       <div>
         <h4>Most Concurrented:</h4>
         <p>{coincidence ? coincidence.option : `------`}</p>
@@ -22,7 +22,7 @@ const Statistics = ({ selectedOptions, randomOption }: Props) => {
             : randomOption.option}
         </p>
       </div>
-    </StatisticsWrapper>
+    </Wrapper>
   );
 };
 

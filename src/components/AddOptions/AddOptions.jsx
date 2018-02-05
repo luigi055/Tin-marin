@@ -1,8 +1,8 @@
 // @flow
 import React, { Component } from "react";
 import uuid from "uuid/v4";
-import { AddForm, AddButton } from "./../styles/StyledComponents";
-import { Props } from "./../../flow-typed/types";
+import { AddForm, AddButton } from "./Styles";
+import { Props } from "./../../../flow-typed/types";
 
 type State = {
   value: String
