@@ -1,46 +1,21 @@
 // @flow
 import React from "react";
-import styled from "styled-components";
-import TinMarin from "./containers/TinMarin";
-/* eslint-disable */
-import "./favicon.ico?output=favicon.ico";
-/* eslint-enable */
-import "./App.scss";
+import { Route, Switch } from "react-router-dom";
+import TinMarin from "./containers/TinMarin/TinMarin";
+import About from "./containers/About/About";
+import Header from "./containers/Header/Header";
+import { Background } from "./styles/GlobalStyles";
 
-const Background = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  height: 100vh;
-  background: rgb(63, 76, 107);
-  background: -moz-radial-gradient(
-    center,
-    ellipse cover,
-    rgba(63, 76, 107, 1) 0%,
-    rgba(63, 76, 107, 1) 100%
-  );
-  background: -webkit-radial-gradient(
-    center,
-    ellipse cover,
-    rgba(63, 76, 107, 1) 0%,
-    rgba(63, 76, 107, 1) 100%
-  );
-  background: radial-gradient(
-    ellipse at center,
-    rgba(63, 76, 107, 1) 0%,
-    rgba(63, 76, 107, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(
-      startColorstr="#3f4c6b",
-      endColorstr="#3f4c6b",
-      GradientType=1
-    );
-`;
+// import "./App.scss";
 
 const App = () => (
   <Background>
-    <TinMarin />
+    <Header />
+    <Switch>
+      <Route exact path="/" component={TinMarin} />
+      <Route exact path="/about" component={About} />
+      <Route render={() => <h1>404 - Not Found :(</h1>} />
+    </Switch>
   </Background>
 );
 
