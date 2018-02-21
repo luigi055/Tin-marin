@@ -84,6 +84,7 @@ const config = {
           {
             loader: "url-loader",
             options: {
+              emitFile: false,
               name: "assets/fonts/[name].[ext]"
             }
           }
@@ -95,6 +96,7 @@ const config = {
           {
             loader: "file-loader",
             options: {
+              emitFile: false,
               name: "assets/fonts/[name].[ext]"
             }
           }
@@ -135,10 +137,11 @@ const config = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
-          "url-loader?name=assets/images/[name].[ext]",
+          "url-loader?emitFile=false?name=assets/images/[name].[ext]",
           {
             loader: "image-webpack-loader",
             options: {
+              emitFile: false,
               mozjpeg: {
                 progressive: true
               },
@@ -204,9 +207,10 @@ const config = {
 };
 
 // Activating hot module replacement in development
-if (env === "development" || env === 'server') {
+if (env === "development" || env === "server") {
   config.entry.unshift(
-    "webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000" // hmr in node.js server useful for ssr
+    "webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000", // hmr in node.js server useful for ssr
+    "webpack/hot/only-dev-server"
   );
   config.plugins.unshift(
     new webpack.HotModuleReplacementPlugin(),

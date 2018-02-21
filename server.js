@@ -7,12 +7,13 @@ const ReactDOMServer = require("react-dom/server");
 const ReactRouter = require("react-router-dom");
 const webpackDevMiddleware = require("webpack-dev-middleware");
 const webpackHotMiddleware = require("webpack-hot-middleware");
+const compression = require("compression"); //gzipping our frontend code from server
 const webpack = require("webpack");
-const webpackConfig = require("./webpack.config.js");
 const _ = require("lodash");
+const webpackConfig = require("./webpack.config.js");
 
 const app = express();
-const baseTemplate = fs.readFileSync("./src/index.html");
+const baseTemplate = fs.readFileSync("./template.html");
 const compiler = webpack(webpackConfig); // activate hmr in this server
 const ClientApp = require("./src/App").default; //since we're using ES6 and we're exporting default
 const StaticRouter = ReactRouter.StaticRouter;
@@ -33,6 +34,8 @@ app.use(
 );
 
 app.use(webpackHotMiddleware(compiler)); // hmr
+
+app.use(compression());
 
 app.use("./public", express.static(`${__dirname}/public`));
 

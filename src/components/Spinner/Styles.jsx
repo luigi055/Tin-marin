@@ -1,0 +1,32 @@
+import styled, { keyframes } from "styled-components";
+
+const spin = keyframes`
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+`;
+
+export const Image = styled.img`
+  animation: ${spin} 4s infinite linear;
+  background-image: url(/public/img/loading.png);
+  background-repeact: no-repeat;
+  max-width: 450px;
+  width: 150px;
+`;
+
+export const Loading = styled.div`
+  align-items: center;
+  background: inherit;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+
+  p {
+    color: #FFF;
+    font-size; 1.7rem;
+  }
+`;
