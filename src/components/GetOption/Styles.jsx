@@ -3,7 +3,7 @@ import { Button } from "./../../styles/GlobalStyles";
 
 const GetButton = Button.extend`
   align-items: center;
-  background: #0f0;
+  background: ${({ theme }) => theme.selectBtn};
   letter-spacing: 2px;
   font-weight: bold;
   height: 42px;
@@ -13,11 +13,19 @@ const GetButton = Button.extend`
   width: 50%;
 
   &:hover {
-    background: #090;
-    color: #fff;
+    background: ${({ theme }) => theme.selectBtnHover};
+    color: ${({ theme }) => theme.fontLightColor};
     font-size: 0.92rem;
     transition: 0.4s;
   }
 `;
+
+GetButton.defaultProps = {
+  theme: {
+    selectBtn: "#0f0",
+    selectBtnHover: "#090",
+    fontLightColor: "#fefefe"
+  }
+};
 
 export default GetButton;

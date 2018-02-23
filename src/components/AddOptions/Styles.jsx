@@ -12,14 +12,21 @@ export const AddForm = styled.form`
 `;
 
 export const AddButton = Button.extend`
-  background: #f90;
+  background: ${({ theme }) => theme.addBtn};
   font-weight: bold;
   padding: 12px 5px;
   transition: 0.4s;
   width: 100%;
 
   &:hover {
-    background: #fa1;
+    background: ${({ theme }) => theme.addBtnHover};
     transition: 0.4s;
   }
 `;
+
+AddButton.defaultProps = {
+  theme: {
+    addBtn: "#f90",
+    addBtnHover: "#fa1"
+  }
+};

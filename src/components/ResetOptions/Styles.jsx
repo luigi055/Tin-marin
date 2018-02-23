@@ -3,8 +3,8 @@ import { Button } from "./../../styles/GlobalStyles";
 
 const RemoveButton = Button.extend`
   align-items: center;
-  background: #ff1111;
-  color: #fefefe;
+  background: ${({ theme }) => theme.removeOptionBtn};
+  color: ${({ theme }) => theme.fontLightColor};
   font-weight: bold;
   height: 42px;
   max-height: 42px;
@@ -13,11 +13,19 @@ const RemoveButton = Button.extend`
   width: 50%;
 
   &:hover {
-    background: #e22;
-    color: #fff;
+    background: ${({ theme }) => theme.removeOptionBtnHover};
+    color: ${({ theme }) => theme.fontLightColor};
     font-size: 0.92rem;
     transition: 0.4s;
   }
 `;
+
+RemoveButton.defaultProps = {
+  theme: {
+    removeOptionBtn: "#ff1111",
+    removeOptionBtnHover: "#e22",
+    fontLightColor: "#fefefe"
+  }
+};
 
 export default RemoveButton;

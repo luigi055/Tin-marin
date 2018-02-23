@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Header = styled.header`
-  background: transparent;
+  background: ${({ theme }) => theme.headerbg};
   position: fixed;
   width: 100%;
   z-index: 3;
@@ -17,23 +17,31 @@ const Header = styled.header`
     display: inline-flex;
 
     a {
-      color: #fff;
+      color: ${({ theme }) => theme.lightColor};
       padding: 10px 18px;
       text-decoration: none;
 
       &:hover {
-        color: #aea;
+        color: ${({ theme }) => theme.hoverLinks};
       }
     }
   }
 
   h1 {
     align-items: center;
-    color: #fff;
+    color: ${({ theme }) => theme.lightColor};
     display: inline-flex;
     font-size: 1.8em;
     padding: 10px 15px;
   }
 `;
+
+Header.defaultProps = {
+  theme: {
+    headerbg: "transparent",
+    lightColor: "#fefefe",
+    hoverLinks: "#aea"
+  }
+};
 
 export default Header;

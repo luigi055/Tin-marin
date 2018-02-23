@@ -26,7 +26,13 @@ export const Loading = styled.div`
   width: 100vw;
 
   p {
-    color: #FFF;
+    color: ${({ theme }) => theme.fontLightColor};
     font-size; 1.7rem;
   }
 `;
+
+Loading.defaultProps = {
+  theme: {
+    fontLightColor: "#fefefe"
+  }
+};

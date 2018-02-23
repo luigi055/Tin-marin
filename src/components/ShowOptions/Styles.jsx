@@ -3,8 +3,7 @@ import styled from "styled-components";
 import { Button, showUp } from "./../../styles/GlobalStyles";
 
 export const TinMarinList = styled.ul`
-  border: #ea0;
-  background: #2c3e50;
+  background: ${({ theme }) => theme.listBG};
   height: 200px;
   list-style: none;
   margin-bottom: 10px;
@@ -14,26 +13,26 @@ export const TinMarinList = styled.ul`
 
 export const TinMarinOption = styled.li`
   animation: ${showUp} 1s ease;
-  background: rebeccapurple;
-  border-bottom: 2px solid #aa00ee;
-  color: #cecece;
+  background: ${({ theme }) => theme.optionBg};
+  border-bottom: 2px solid ${({ theme }) => theme.listBottomBorder};
+  color: ${({ theme }) => theme.fontLightColor};
   padding: 10px 25px;
   text-align: left;
 `;
 
 export const TinMarinOptionSelected = styled.li`
-  background: #0f0;
-  border-bottom: 2px solid #aa00ee;
-  color: #333;
+  background: ${({ theme }) => theme.selectedOptionBg};
+  border-bottom: 2px solid ${({ theme }) => theme.listBottomBorder};
+  color: ${({ theme }) => theme.fontDarkColor};
   padding: 10px 25px;
   text-align: left;
 `;
 
 export const Delete = Button.extend`
-  background: #ff5555;
-  border: 1px solid #aa0000;
+  background: ${({ theme }) => theme.deleteBtnBg};
+  border: 1px solid ${({ theme }) => theme.deleteBtnBorder};
   border-radius: 50%;
-  color: #a00;
+  color: ${({ theme }) => theme.deleteBtnBorder};
   float: right;
   font-size: 0.9rem;
   padding-bottom: 1.5px;
@@ -42,14 +41,38 @@ export const Delete = Button.extend`
   width: 20px;
 
   &:hover {
-    background: #f33;
-    color: #fff;
+    background: ${({ theme }) => theme.deleteBtnBgHover};
+    color: ${({ theme }) => theme.fontLightColor};
     transition: 0.4s;
   }
 `;
 
 export const Placeholder = styled.span`
-  color: #fff;
+  color: ${({ theme }) => theme.fontLightColor};
   display: inline-block;
   margin: 84px 0 0;
 `;
+Delete.defaultProps = {
+  theme: {
+    deleteBtnBg: "#f55",
+    deleteBtnBgHover: "#f33",
+    deleteBtnBorder: "#aa0000"
+  }
+};
+TinMarinList.defaultProps = {
+  theme: {
+    listBG: "#234"
+  }
+};
+TinMarinOptionSelected.defaultProps = {
+  theme: {
+    listBottomBorder: "#aa00ee",
+    fontDarkColor: "#234",
+    selectedOptionBg: "#0f0"
+  }
+};
+Placeholder.defaultProps = {
+  theme: {
+    fontLightColor: "#fefefe"
+  }
+};
