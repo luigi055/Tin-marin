@@ -1,9 +1,28 @@
 // @flow
+import React from "react";
 import styled from "styled-components";
-import { Button, showUp } from "./../../styles/GlobalStyles";
+import FlipMove from "react-flip-move";
+import { Button } from "./../../styles/GlobalStyles";
 
-export const TinMarinList = styled.ul`
+type Props = {
+  className: Object,
+  children: eact.Element<any>
+};
+
+const FlipMoveUL = ({ className, children }: Props) => (
+  <FlipMove
+    typeName="ul"
+    className={className}
+    duration={2050}
+    easing="ease-out"
+  >
+    {children}
+  </FlipMove>
+);
+
+export const TinMarinList = styled(FlipMoveUL)`
   background: ${({ theme }) => theme.listBG};
+  border: 1px solid #626;
   height: 200px;
   list-style: none;
   margin-bottom: 10px;
@@ -12,7 +31,6 @@ export const TinMarinList = styled.ul`
 `;
 
 export const TinMarinOption = styled.li`
-  animation: ${showUp} 1s ease;
   background: ${({ theme }) => theme.optionBg};
   border-bottom: 2px solid ${({ theme }) => theme.listBottomBorder};
   color: ${({ theme }) => theme.fontLightColor};

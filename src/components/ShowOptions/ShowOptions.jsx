@@ -67,4 +67,5 @@ ShowOptions.handleDeleteOption = (updateState, options, option) => (
     options: remainingOptions
   });
 };
+
 export default ShowOptions;

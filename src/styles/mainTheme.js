@@ -1,6 +1,6 @@
 const theme = () => {
   const mainColor = "#3498db";
-  const secondaryColor = "#ea0";
+  const secondaryColor = "#fa1";
   const thirdColor = "#aa00ee";
   const fourthColor = "#aea";
   const lightColor = "#fefefe";
@@ -22,7 +22,7 @@ const theme = () => {
     fontLightColor: lightColor,
     fontDarkColor: darkColor,
     listBG: darkColor,
-    listBottomBorder: thirdColor,
+    listBottomBorder: "#c0f",
     selectedOptionBg: ctoSuccess,
     optionBg: thirdColor,
     deleteBtnBg: ctoDelete,
@@ -33,7 +33,7 @@ const theme = () => {
     selectBtn: ctoSuccess,
     selectBtnHover: "#090",
     addBtn: secondaryColor,
-    addBtnHover: "#fa1"
+    addBtnHover: "#ea0"
   };
 };
 
