@@ -1,6 +1,6 @@
 # Tin Marin App
-        this webapp was thought to experiment with some pieces of technologies and features that we can integrate to React.js (V16) style-components (the most famous css-in-js library for React), flow type checker and Jest with enzyme, also enabling code-splitting with webpack and render the entire app from server side using <br />
-        Sometimes we need to give the priority order of our task to the destiny. so with Tin Marin you will give that responsability to the power of React.js :)!
+  this webapp was thought to experiment with some pieces of technologies and features that we can integrate to React.js (V16) style-components (the most famous css-in-js library for React), flow type checker and Jest with enzyme, also enabling code-splitting with webpack and render the entire app from server side using
+  Sometimes we need to give the priority order of our task to the destiny. so with Tin Marin you will give that responsability to the power of React.js :)!
 
 # Repository
 [https://github.com/luigi055/tin-marin](https://github.com/luigi055/tin-marin)
