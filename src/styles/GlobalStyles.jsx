@@ -15,12 +15,12 @@ injectGlobal`
 }
 
 html, body {
-  font-family: sans-serif; // 2
-  line-height: 1.15; // 3
-  -webkit-text-size-adjust: 100%; // 4
-  -ms-text-size-adjust: 100%; // 4
-  -ms-overflow-style: scrollbar; // 5
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 6
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 `;
 /* eslint-enable */

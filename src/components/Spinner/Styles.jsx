@@ -13,8 +13,7 @@ export const Image = styled.img`
   animation: ${spin} 4s infinite linear;
   background-image: url(/public/img/loading.png);
   background-repeact: no-repeat;
-  max-width: 450px;
-  width: 150px;
+  width: 100px;
 `;
 
 export const Loading = styled.div`

@@ -1,12 +1,12 @@
 // @flow
 import React from "react";
-import { Loading } from "./Styles";
-// import spinner from "./../../img/spinner.svg";
-// <Image src={spinner} alt="loading indicator" />
+import { Loading, Image } from "./Styles";
+import spinner from "./../../img/spinner.svg";
+// <p> Loading... </p>;
 
 const Spinner = () => (
   <Loading>
-    <p> Loading... </p>;
+    <Image src={spinner} alt="loading indicator" />
   </Loading>
 );
 

@@ -27,17 +27,18 @@ const PORT = process.env.PORT || 3000;
 //   res.send('Maintainance Mode');
 // });
 
-// although it is not recommended nor needed to use hmr in server. (because this server should be just for production) it's posible to activate it for development
-app.use(
-  // hmr in dev
-  webpackDevMiddleware(compiler, {
-    publicPath: webpackConfig.output.publicPath
-  })
-);
-
-// app.use(webpackHotMiddleware(compiler)); // hmr
-
 app.use(compression());
+
+if (process.env.NODE_ENV === 'development') {
+  // hmr only for development mode
+  const compiler = webpack(config);
+  server.use(
+    webpackDevMiddleware(compiler, {
+      publicPath: config.output.publicPath
+    })
+  );
+  server.use(webpackHotMiddleware(compiler));
+}
 
 app.use("./public", express.static(`${__dirname}/public`));
 
