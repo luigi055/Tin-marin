@@ -5,6 +5,10 @@
 # Repository
 [https://github.com/luigi055/tin-marin](https://github.com/luigi055/tin-marin)
 
+# Project URL
+Frontend Only React app on surge.sh [http://tinmarin.surge.sh/](http://tinmarin.surge.sh/)
+Full React App with Server side rendering on Heroku [https://tin-marin.herokuapp.com/](https://tin-marin.herokuapp.com/)
+
 ## Table of contents
 - [Vistual Studio Code Extensions](#visual-studio-code-extensions)
 - [OS Compatibility](#os-compatibility)
@@ -411,6 +415,8 @@ you first pass in the component through the new async route component with its p
 ```
 
 ## Server Side Rendering
+
+your server's response to the browser is the HTML of your page that is ready to be rendered so the browser can start rendering without having to wait for all the JavaScript to be downloaded and executed. There's no "white page" while the browser downloads and executes the JavaScript and other assets needed to render the page, which is what might happen in an entirely client-rendered React site. Also it's SEO Friendly.
 
 ## Software Used
 
