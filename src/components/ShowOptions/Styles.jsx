@@ -1,8 +1,8 @@
 // @flow
-import React from "react";
+// import React from "react";
 import styled from "styled-components";
 // import FlipMove from "react-flip-move";
-import { Button, showUp } from "./../../styles/GlobalStyles";
+import { Button } from "./../../styles/GlobalStyles";
 
 // type Props = {
 //   className: Object,
