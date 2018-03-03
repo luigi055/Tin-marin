@@ -1,4 +1,33 @@
-require("babel-register"); // Needed to translate .jsx files
+require("babel-register")({
+  presets: [
+    "react",
+    [
+      "env",
+      {
+        targets: {
+          browsers: "last 2 versions"
+        },
+        modules: false,
+        loose: true
+      }
+    ]
+  ],
+  plugins: [
+    "react-hot-loader/babel",
+    "babel-plugin-syntax-dynamic-import",
+    "babel-plugin-dynamic-import-webpack",
+    "babel-plugin-transform-decorators-legacy",
+    "babel-plugin-transform-class-properties"
+  ],
+  env: {
+    test: {
+      plugins: ["transform-es2015-modules-commonjs"]
+    },
+    production: {
+      plugins: ["transform-es2015-modules-commonjs"]
+    }
+  }
+}); // Needed to translate .jsx files
 
 const fs = require("fs");
 const express = require("express");
@@ -36,6 +65,16 @@ app.use(
 app.use(webpackHotMiddleware(compiler)); // hmr
 
 app.use(compression());
+// if (process.env.NODE_ENV === 'development') {
+//   // hmr only for development mode
+//   const compiler = webpack(config);
+//   server.use(
+//     webpackDevMiddleware(compiler, {
+//       publicPath: config.output.publicPath
+//     })
+//   );
+//   server.use(webpackHotMiddleware(compiler));
+// }
 
 app.use("./public", express.static(`${__dirname}/public`));
 

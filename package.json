@@ -12,7 +12,7 @@
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "clear": "rm -rf ./public",
     "start":
-      "node server.js",
+      "export NODE_ENV=production || SET \"NODE_ENV=production\" && node server.js",
     "build:dev": "rm -rf ./public && webpack",
     "build:dev--watch": "webpack -d -w",
     "build":
@@ -67,7 +67,6 @@
     "prettier": "1.10.2",
     "stylelint": "8.4.0",
     "stylelint-config-standard": "18.0.0"
-
   },
   "dependencies": {
     "autoprefixer": "7.2.5",
