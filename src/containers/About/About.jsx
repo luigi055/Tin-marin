@@ -33,7 +33,12 @@ export default () => (
         Github public Repository: https://github.com/luigi055/tin-marin
       </a>
       <a href="http://tinmarin.surge.sh/">
-        Try Tín Marín App online: http://tinmarin.surge.sh/
+        Try Tín Marín App (Just Frontend with Code-splitting) online:
+        http://tinmarin.surge.sh/
+      </a>
+      <a href="https://tin-marin.herokuapp.com/">
+        Try Tín Marín App with server side rendering online:
+        https://tin-marin.herokuapp.com/
       </a>
     </div>
   </About>
