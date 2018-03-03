@@ -41,13 +41,6 @@ const config = {
     chunks: true
   },
   module: {
-    rules: [
-      {
-        enforce: "pre",
-        test: /\.jsx?$/,
-        loader: "eslint-loader",
-        exclude: /node_modules/
-      },
       {
         test: /.jsx?$/,
         exclude: /(node_modules|bower_components)/,
@@ -211,6 +204,14 @@ if (env === "development" || env === "server") {
   config.entry.unshift(
     "webpack-hot-middleware/client?path=__webpack_hmr&timeout=2000", // hmr in node.js server useful for ssr
     "webpack/hot/only-dev-server"
+  );
+  config.module.rules.unshift(
+      {
+        enforce: "pre",
+        test: /\.jsx?$/,
+        loader: "eslint-loader",
+        exclude: /node_modules/
+      },
   );
   config.plugins.unshift(
     new webpack.HotModuleReplacementPlugin(),
